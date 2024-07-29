@@ -1,0 +1,11 @@
+cache:
+  cacheFormat: universal
+  cacheLocation: node_modules/.cache/cspell/.cspell.cache
+  cacheStrategy: metadata
+  useCache: true
+import:
+  - '@kurone-kito/cspell-config'
+ignorePaths:
+  - node_modules
+usePnP: true
+version: '0.2'
