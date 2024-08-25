@@ -20,20 +20,20 @@
   "files": [],
   "scripts": {
     "clean": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" \"node_modules/.cache/**/*\"",
-    "lint": "conc -m 1 \"yarn:lint:*:check\"",
+    "lint": "pnpm run \"/lint:.+:check/\"",
     "lint:cspell:check": "cspell lint --no-progress --show-suggestions -u \"./**/*\"",
     "lint:eslint:check": "eslint --cache --cache-location node_modules/.cache/eslint/ --cache-strategy=content -f codeframe \"./**/*\"",
-    "lint:eslint:fix": "yarn run lint:eslint:check --fix",
-    "lint:fix": "conc -m 1 \"yarn:lint:cspell:check\" \"yarn:lint:*:fix\"",
+    "lint:eslint:fix": "pnpm run lint:eslint:check --fix",
+    "lint:fix": "pnpm run lint:cspell:check && pnpm run \"/lint:.+:fix/\"",
     "lint:markdown:check": "markdownlint-cli2 \"**/*.md\"",
     "lint:markdown:fix": "markdownlint-cli2 --fix \"**/*.md\"",
     "lint:oxlint:check": "oxlint",
     "lint:oxlint:fix": "oxlint --fix",
-    "lint:prettier:check": "yarn run prettier -cu",
-    "lint:prettier:fix": "yarn run prettier -uw",
-    "postinstall": "husky",
-    "prettier": "prettier --cache --log-level=warn \"$@\" \"./**/*\"",
-    "test": "yarn run lint"
+    "lint:prettier:check": "pnpm run prettier -cu \"./**/*\"",
+    "lint:prettier:fix": "pnpm run prettier -uw \"./**/*\"",
+    "prepare": "husky",
+    "prettier": "prettier --cache --log-level=warn",
+    "test": "pnpm run lint"
   },
   "prettier": "@kurone-kito/prettier-config",
   "devDependencies": {
@@ -47,8 +47,6 @@
     "@kurone-kito/prettier-config": "^0.16.0",
     "@kurone-kito/typescript-config": "^0.16.0",
     "@typescript-eslint/parser": "^8.3.0",
-    "@yarnpkg/sdks": "^3.2.0",
-    "concurrently": "^8.2.2",
     "cspell": "^8.14.2",
     "eslint": "^9.9.1",
     "eslint-formatter-codeframe": "^7.32.1",
@@ -61,7 +59,7 @@
     "typescript": "~5.5.4",
     "typescript-eslint-language-service": "^5.0.5"
   },
-  "packageManager": "yarn@4.4.1+sha512.f825273d0689cc9ead3259c14998037662f1dcd06912637b21a450e8da7cfeb4b1965bbee73d16927baa1201054126bc385c6f43ff4aa705c8631d26e12460f1",
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1",
   "engines": {
     "node": "^18.20 || ^20.10 || >=22"
   },

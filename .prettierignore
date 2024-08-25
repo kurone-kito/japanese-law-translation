@@ -7,9 +7,8 @@
 # Ignorefiles
 .*ignore
 
-# Yarn v2
-.yarn
-yarn.lock
+# Pnpm
+pnpm-lock.yaml
 
 ### Text ###
 packages/**/docs/**/*.md
