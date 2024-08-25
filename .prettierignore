@@ -10,3 +10,6 @@
 # Yarn v2
 .yarn
 yarn.lock
+
+### Text ###
+packages/**/docs/**/*.md

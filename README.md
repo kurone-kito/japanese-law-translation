@@ -1,79 +1,29 @@
-# 📄 Yarn project boilerplate
+# ↔️ Japanese Law Translation
 
-## Features
+The unofficial library provides bilingual English translations of legal
+terms in Japan.
 
-- Yarn (berry) with PnP
-- TypeScript
-- ESLint
-- Prettier
-- Commitlint with Husky
-- Visual Studio Code / Vim ready
-- CI configurations
-  - CodeRabbit
-  - Dependabot
-  - GitHub Actions
+- source: <https://www.japaneselawtranslation.go.jp/>
+- see: [My tweet](https://x.com/kurone_kito/status/1817756249112617423)
 
 ## System Requirements
 
-- Node.js Hydrogen LTS (`^18.20.4`)
+- Node.js
+  - Hydrogen LTS `>=18.20` or
+  - Iron LTS `>=20.10` or
+  - later versions
 
-## Install the dependencies
-
-```sh
-corepack enable
-yarn install
-```
-
-## Linting
+## Usage
 
 ```sh
-yarn run lint
-yarn run lint:fix # Lint and auto-fix
+npm i @kurone-kito/japanese-law-translation
 ```
 
-## Testing
-
-```sh
-yarn run test
-```
-
-Currently, the command works as an alias for the `yarn run lint` command.
-
-## Cleaning
-
-```sh
-yarn run clean
-```
-
-## Migrate to NPM
-
-```sh
-# 1. Remove all untracked files
-git clean -fdx
-
-# 2. Patch to the project
-patch -p1 < patches/migrate-to-npm.patch
-
-# 3. Remove some files
-npm x -y -- rimraf .yarn .yarnrc.yml yarn.lock
-
-# 4. Install the dependencies
-npm install
-
-# (Optional) 5. Commit the changes
-git add -A
-git commit -m 'chore: migrate to NPM'
-```
-
-## Rules for Development
+## Contributing
 
 Welcome to contribute to this repository! For more details,
 please refer to [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 
-Introduce commit message validation at commit time.
-The “**[Conventional Commits](https://www.conventionalcommits.org/ja/)**”
-rule is applied to discourage committing messages that violate conventions.
-
 ## LICENSE
 
-MIT
+[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)
