@@ -9,3 +9,5 @@ ignorePaths:
   - node_modules
 usePnP: true
 version: '0.2'
+words:
+  - aicommits

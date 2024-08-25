@@ -1,0 +1,5 @@
+ignores:
+  - .github/CODE_OF_CONDUCT*
+  - .yarn
+  - node_modules/**/*
+  - packages/**/node_modules/**/*
