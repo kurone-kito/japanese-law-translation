@@ -1,0 +1,34 @@
+name: Publish the packages
+run-name: Publish by @${{ github.actor }}
+on:
+  release:
+    types:
+      - published
+permissions:
+  contents: read
+jobs:
+  build:
+    name: The build process
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stages the pushed branch
+        uses: actions/checkout@v4
+      - name: Pre-prepare the Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - name: Enable the corepack
+        run: corepack enable
+      - name: Post-prepare the Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          cache: ${{ !env.ACT && 'pnpm' || '' }}
+          node-version-file: .node-version
+      - env:
+          HUSKY: 0
+        name: Install the dependencies
+        run: pnpm install --prefer-frozen-lockfile
+      - env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        name: Publish the packages
+        run: pnpm run publish
