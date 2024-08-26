@@ -81,6 +81,29 @@ importers:
         specifier: ^5.0.5
         version: 5.0.5(@typescript-eslint/parser@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
 
+  packages/jlt:
+    dependencies:
+      '@kurone-kito/japanese-law-translation-types':
+        specifier: workspace:^
+        version: link:../jlt-types
+    devDependencies:
+      '@kurone-kito/japanese-law-translation-builder':
+        specifier: workspace:^
+        version: link:../jlt-builder
+      '@kurone-kito/japanese-law-translation-crawler':
+        specifier: workspace:^
+        version: link:../jlt-crawler
+
+  packages/jlt-builder:
+    dependencies:
+      '@kurone-kito/japanese-law-translation-types':
+        specifier: workspace:^
+        version: link:../jlt-types
+
+  packages/jlt-crawler: {}
+
+  packages/jlt-types: {}
+
 packages:
 
   '@babel/code-frame@7.12.11':
