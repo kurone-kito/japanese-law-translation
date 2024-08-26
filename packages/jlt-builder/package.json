@@ -14,8 +14,14 @@
   "author": "kurone-kito <krone@kit.black> (https://kit.black/)",
   "type": "module",
   "files": [],
+  "scripts": {
+    "clean": "rimraf -g \"*.tgz\""
+  },
   "dependencies": {
     "@kurone-kito/japanese-law-translation-types": "workspace:^"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.10"
   },
   "engines": {
     "node": "^18.20 || ^20.10 || >=22"

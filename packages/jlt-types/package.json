@@ -13,6 +13,13 @@
   "author": "kurone-kito <krone@kit.black> (https://kit.black/)",
   "type": "module",
   "files": [],
+  "scripts": {
+    "clean": "rimraf -g \"*.tgz\"",
+    "prepack": "pnpm run clean"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.10"
+  },
   "engines": {
     "node": "^18.20 || ^20.10 || >=22"
   },

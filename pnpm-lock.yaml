@@ -93,16 +93,31 @@ importers:
       '@kurone-kito/japanese-law-translation-crawler':
         specifier: workspace:^
         version: link:../jlt-crawler
+      rimraf:
+        specifier: ^5.0.10
+        version: 5.0.10
 
   packages/jlt-builder:
     dependencies:
       '@kurone-kito/japanese-law-translation-types':
         specifier: workspace:^
         version: link:../jlt-types
+    devDependencies:
+      rimraf:
+        specifier: ^5.0.10
+        version: 5.0.10
 
-  packages/jlt-crawler: {}
+  packages/jlt-crawler:
+    devDependencies:
+      rimraf:
+        specifier: ^5.0.10
+        version: 5.0.10
 
-  packages/jlt-types: {}
+  packages/jlt-types:
+    devDependencies:
+      rimraf:
+        specifier: ^5.0.10
+        version: 5.0.10
 
 packages:
 
