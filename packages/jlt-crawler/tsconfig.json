@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "incremental": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "sourceRoot": "./src"
+  },
+  "extends": "@kurone-kito/typescript-config/tsconfig.json",
+  "include": ["src"]
+}

@@ -13,12 +13,24 @@
   "license": "CC-BY-4.0",
   "author": "kurone-kito <krone@kit.black> (https://kit.black/)",
   "type": "module",
-  "files": [],
+  "main": "dist/index.mjs",
+  "bin": {
+    "jlt-crawler": "dist/index.mjs"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "clean": "rimraf -g \"*.tgz\""
+    "build": "tsc",
+    "clean": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" dist",
+    "preinstall": "pnpm dlx mkdirp dist && pnpm dlx touch dist/index.mjs",
+    "start": "tsc -w"
   },
   "devDependencies": {
-    "rimraf": "^5.0.10"
+    "@kurone-kito/typescript-config": "0.16.0",
+    "rimraf": "^5.0.10",
+    "typescript": "~5.5.4",
+    "typescript-eslint-language-service": "^5.0.5"
   },
   "engines": {
     "node": "^18.20 || ^20.10 || >=22"

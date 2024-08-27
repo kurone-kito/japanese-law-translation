@@ -3,11 +3,13 @@
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "*.md": "${capture}.*.md",
+    "*.mjs": "${capture}.*",
     ".gitattributes": ".gitignore",
     ".markdownlint.*": ".markdownlint-cli2.*",
     ".prettierrc.*": ".prettierignore",
     ".tool-versions": ".node-version, .nvmrc",
-    "package.json": ".npmrc, pnpm-lock.yaml, pnpm-workspace.yaml"
+    "package.json": ".npmrc, pnpm-lock.yaml, pnpm-workspace.yaml",
+    "tsconfig.json": "*.tsbuildinfo"
   },
   "files.associations": {
     ".imgbotconfig": "json",

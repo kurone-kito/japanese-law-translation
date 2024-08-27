@@ -19,6 +19,10 @@ terms in Japan.
 npm i @kurone-kito/japanese-law-translation
 ```
 
+```js
+import jlt from '@kurone-kito/japanese-law-translation';
+```
+
 ## Contributing
 
 Welcome to contribute to this repository! For more details, please refer to

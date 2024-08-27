@@ -93,12 +93,18 @@ importers:
       '@kurone-kito/japanese-law-translation-crawler':
         specifier: workspace:^
         version: link:../jlt-crawler
+      '@kurone-kito/typescript-config':
+        specifier: 0.16.0
+        version: 0.16.0(@typescript-eslint/parser@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(typescript-eslint-language-service@5.0.5(@typescript-eslint/parser@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(typescript@5.5.4)
       cpy-cli:
         specifier: ^5.0.0
         version: 5.0.0
       rimraf:
         specifier: ^5.0.10
         version: 5.0.10
+      typescript:
+        specifier: ~5.5.4
+        version: 5.5.4
 
   packages/jlt-builder:
     dependencies:
@@ -106,24 +112,45 @@ importers:
         specifier: workspace:^
         version: link:../jlt-types
     devDependencies:
+      '@kurone-kito/typescript-config':
+        specifier: 0.16.0
+        version: 0.16.0(@typescript-eslint/parser@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(typescript-eslint-language-service@5.0.5(@typescript-eslint/parser@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(typescript@5.5.4)
       rimraf:
         specifier: ^5.0.10
         version: 5.0.10
+      typescript:
+        specifier: ~5.5.4
+        version: 5.5.4
 
   packages/jlt-crawler:
     devDependencies:
+      '@kurone-kito/typescript-config':
+        specifier: 0.16.0
+        version: 0.16.0(@typescript-eslint/parser@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(typescript-eslint-language-service@5.0.5(@typescript-eslint/parser@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(typescript@5.5.4)
       rimraf:
         specifier: ^5.0.10
         version: 5.0.10
+      typescript:
+        specifier: ~5.5.4
+        version: 5.5.4
+      typescript-eslint-language-service:
+        specifier: ^5.0.5
+        version: 5.0.5(@typescript-eslint/parser@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
 
   packages/jlt-types:
     devDependencies:
+      '@kurone-kito/typescript-config':
+        specifier: 0.16.0
+        version: 0.16.0(@typescript-eslint/parser@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(typescript-eslint-language-service@5.0.5(@typescript-eslint/parser@8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(typescript@5.5.4)
       cpy-cli:
         specifier: ^5.0.0
         version: 5.0.0
       rimraf:
         specifier: ^5.0.10
         version: 5.0.10
+      typescript:
+        specifier: ~5.5.4
+        version: 5.5.4
 
 packages:
 

@@ -20,9 +20,11 @@
   "files": [],
   "scripts": {
     "build": "pnpm run -r build",
+    "builder": "pnpm --filter @kurone-kito/japanese-law-translation exec jlt-builder",
     "clean": "pnpm run --no-bail -p \"/^clean:.+/\"",
     "clean:root": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" \"node_modules/.cache/**/*\"",
     "clean:sub": "pnpm run -r clean",
+    "crawler": "pnpm --filter @kurone-kito/japanese-law-translation exec jlt-crawler",
     "lint": "pnpm run \"/lint:.+:check/\"",
     "lint:cspell:check": "cspell lint --no-progress --show-suggestions -u \"./**/*\"",
     "lint:eslint:check": "eslint --cache --cache-location node_modules/.cache/eslint/ --cache-strategy=content -f codeframe \"./**/*\"",
