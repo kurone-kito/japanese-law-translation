@@ -1,3 +1,7 @@
+**@kurone-kito/japanese-law-translation-types** • [**Docs**](globals.md)
+
+***
+
 # ↔️ Japanese Law Translation
 
 This package provides type definitions for the library package

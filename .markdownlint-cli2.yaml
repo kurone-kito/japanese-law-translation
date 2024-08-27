@@ -1,4 +1,5 @@
 ignores:
   - .github/CODE_OF_CONDUCT*
   - node_modules/**/*
+  - packages/**/docs/**/*
   - packages/**/node_modules/**/*

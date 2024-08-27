@@ -1,3 +1,7 @@
+**@kurone-kito/japanese-law-translation** • [**Docs**](globals.md)
+
+***
+
 # ↔️ Japanese Law Translation
 
 The unofficial library provides bilingual English translations of legal

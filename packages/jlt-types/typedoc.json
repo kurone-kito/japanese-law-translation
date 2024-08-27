@@ -1,0 +1,5 @@
+{
+  "disableSources": true,
+  "entryPoints": ["./index.d.ts"],
+  "plugin": ["typedoc-plugin-markdown"]
+}

@@ -27,6 +27,7 @@
   ],
   "scripts": {
     "build": "pnpm run -p \"/^build:res:.+/\" && pnpm run -p \"/^build:code:.+/\"",
+    "build:code:jsdoc": "typedoc",
     "build:code:ts": "tsc",
     "build:res:jlt": "jlt-crawler | jlt-builder",
     "build:res:license": "cpy --flat ../../LICENSE .",
@@ -44,6 +45,8 @@
     "@kurone-kito/typescript-config": "0.16.0",
     "cpy-cli": "^5.0.0",
     "rimraf": "^5.0.10",
+    "typedoc": "^0.26.6",
+    "typedoc-plugin-markdown": "^4.2.6",
     "typescript": "~5.5.4"
   },
   "engines": {
