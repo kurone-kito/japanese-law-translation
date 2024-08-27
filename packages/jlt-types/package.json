@@ -14,10 +14,12 @@
   "type": "module",
   "files": [],
   "scripts": {
-    "clean": "rimraf -g \"*.tgz\"",
-    "prepack": "pnpm run clean"
+    "build": "cpy --flat ../../LICENSE .",
+    "clean": "rimraf -g \"*.tgz\" LICENSE",
+    "prepack": "pnpm run clean && pnpm run build"
   },
   "devDependencies": {
+    "cpy-cli": "^5.0.0",
     "rimraf": "^5.0.10"
   },
   "engines": {

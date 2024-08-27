@@ -21,8 +21,8 @@ npm i @kurone-kito/japanese-law-translation
 
 ## Contributing
 
-Welcome to contribute to this repository! For more details,
-please refer to [CONTRIBUTING.md](.github/CONTRIBUTING.md).
+Welcome to contribute to this repository! For more details, please refer to
+[CONTRIBUTING.md](https://github.com/kurone-kito/japanese-law-translation/blob/main/.github/CONTRIBUTING.md).
 
 ## LICENSE
 
