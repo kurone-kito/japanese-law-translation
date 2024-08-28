@@ -1,9 +1,10 @@
 import { parseArguments, usage } from './parseArguments.mjs';
+import { download } from './download.mjs';
 
-const { help, verbose, version } = parseArguments();
+const { help, ...rest } = parseArguments();
 if (help) {
   console.warn(usage);
   process.exit(0);
 }
 
-console.log(verbose, version);
+await download({ ...rest });
