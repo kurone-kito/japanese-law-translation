@@ -4,6 +4,7 @@
   "explorer.fileNesting.patterns": {
     "*.md": "${capture}.*.md",
     "*.mjs": "${capture}.*",
+    "*.mts": "${capture}.test.mts",
     ".gitattributes": ".gitignore",
     ".markdownlint.*": ".markdownlint-cli2.*",
     ".prettierrc.*": ".prettierignore",

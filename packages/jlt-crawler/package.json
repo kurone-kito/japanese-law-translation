@@ -24,13 +24,15 @@
     "build": "tsc",
     "clean": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" dist",
     "preinstall": "pnpm dlx mkdirp dist && pnpm dlx touch dist/index.mjs",
-    "start": "tsc -w"
+    "start": "tsc -w",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@kurone-kito/typescript-config": "0.16.0",
     "rimraf": "^5.0.10",
     "typescript": "~5.5.4",
-    "typescript-eslint-language-service": "^5.0.5"
+    "typescript-eslint-language-service": "^5.0.5",
+    "vitest": "^2.0.5"
   },
   "engines": {
     "node": "^18.20 || ^20.10 || >=22"
