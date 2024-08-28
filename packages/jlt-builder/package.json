@@ -28,7 +28,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@kurone-kito/japanese-law-translation-types": "workspace:^"
+    "@kurone-kito/japanese-law-translation-types": "workspace:^",
+    "fast-xml-parser": "^4.4.1"
   },
   "devDependencies": {
     "@kurone-kito/typescript-config": "0.16.0",

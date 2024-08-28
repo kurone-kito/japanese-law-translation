@@ -1,5 +1,7 @@
+import { XMLParser } from 'fast-xml-parser';
 import { fromStdin } from './fromStdin.mjs';
 
-const body = await fromStdin();
+const parser = new XMLParser({ ignoreAttributes: false });
+const source = parser.parse(await fromStdin());
 
-console.log(body);
+console.log(JSON.stringify(source));
