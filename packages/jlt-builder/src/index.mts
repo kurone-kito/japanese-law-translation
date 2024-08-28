@@ -1,1 +1,5 @@
-console.log('builder: Hello,world!');
+import { fromStdin } from './fromStdin.mjs';
+
+const body = await fromStdin();
+
+console.log(body);
