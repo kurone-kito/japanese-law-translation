@@ -20,6 +20,13 @@
   "license": "CC-BY-4.0",
   "author": "kurone-kito <krone@kit.black> (https://kit.black/)",
   "type": "module",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./e2j.json": "./dist/e2j.json",
+    "./j2e.json": "./dist/j2e.json",
+    "./k2e.json": "./dist/k2e.json",
+    "./package.json": "./package.json"
+  },
   "main": "dist/index.mjs",
   "types": "dist/index.d.mts",
   "files": [

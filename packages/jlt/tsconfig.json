@@ -6,5 +6,5 @@
   },
   "exclude": ["dist"],
   "extends": "@kurone-kito/typescript-config/tsconfig.json",
-  "include": ["src"]
+  "include": ["src/**/*.json", "src/**/*.mts"]
 }
