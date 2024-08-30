@@ -32,7 +32,7 @@
     "build:res:jlt": "jlt-crawler | jlt-builder",
     "build:res:license": "cpy --flat ../../LICENSE .",
     "build:res:readme": "cpy --flat ../../README.md .",
-    "clean": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" dist LICENSE README.md",
+    "clean": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" dist LICENSE README.md \"src/*.json\"",
     "prepack": "pnpm run clean && pnpm run build",
     "start": "tsc -w"
   },
