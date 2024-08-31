@@ -1,209 +1,178 @@
-# 📄 Yarn project boilerplate
+# ↔️ Japanese Law Translation
 
-## Features
+The unofficial library provides bilingual English translations of legal
+terms in Japan.
 
-- Yarn (berry) with PnP
-- TypeScript
-- ESLint
-- Prettier
-- Commitlint with Husky
-- Visual Studio Code / Vim ready
-- CI configurations
-  - Dependabot
-  - GitHub Actions
-  - ReviewPad
+- source: <https://www.japaneselawtranslation.go.jp/>
+- see: [My tweet](https://x.com/kurone_kito/status/1817756249112617423)
+
+## Pros
+
+- This library provides dictionaries in JSON format, which is easier to
+  handle than XML or CSV distributed on the official website.
+- Since this library is available via [npm](https://www.npmjs.com), it can
+  be used more quickly than clicking and downloading from the official site.
+- The library also provides definitions of TypeScript.
 
 ## System Requirements
 
-- Node.js Hydrogen LTS (`^18.19.0`)
+- Node.js
+  - Hydrogen LTS `>=18.20` or
+  - Iron LTS `>=20.10` or
+  - later versions
 
-## Install the dependencies
-
-```sh
-corepack enable
-yarn install
-```
-
-## Linting
+## Usage
 
 ```sh
-yarn run lint
-yarn run lint:fix # Lint and auto-fix
+npm i @kurone-kito/japanese-law-translation
 ```
 
-## Testing
+```ts
+import { j2e } from '@kurone-kito/japanese-law-translation';
+// or
+import j2eJson from '@kurone-kito/japanese-law-translation/j2e.json' with { type: 'json' };
 
-```sh
-yarn run test
+console.log(j2e['法律']);
+// Output: { kana: 'ほうりつ', translation: [{ phrase: 'law', usage: '法律一般としての意味の場合', ... }, ...], ... }
+
+console.log(j2eJson['法律']);
+// Output: { kana: 'ほうりつ', translation: [{ phrase: 'law', usage: '法律一般としての意味の場合', ... }, ...], ... }
 ```
 
-Currently, the command works as an alias for the `yarn run lint` command.
+## API
 
-## Cleaning
+[See documentation for details](https://github.com/kurone-kito/japanese-law-translation/blob/main/packages/jlt/docs/README.md).
 
-```sh
-yarn run clean
-```
+### Exposed endpoints
 
-## Migrate to NPM
+- `@kurone-kito/japanese-law-translation`: The main entry point
+- `@kurone-kito/japanese-law-translation/e2j.json`: The dictionary from
+  English to Japanese
+- `@kurone-kito/japanese-law-translation/j2e.json`: The dictionary from
+  Japanese to English
+- `@kurone-kito/japanese-law-translation/k2e.json`: The dictionary from
+  Hiragana to English
 
-### 1. Remove the following files
+### `e2j`: The dictionary from English to Japanese
 
-- `.gitattributes`
-- `.yarn/`
-- `.yarnrc.yml`
-- `yarn.lock`
+`e2j.json` values are provided as is, with type definitions.
 
-### 2. Apply the following patches
+```ts
+import { e2j } from '@kurone-kito/japanese-law-translation';
 
-```diff
---- a/.github/workflows/push.yml
-+++ b/.github/workflows/push.yml
-@@ -21,19 +21,17 @@ jobs:
-         uses: actions/setup-node@v4
-         with:
-           node-version: ${{ matrix.node-version }}
--      - name: Enable the corepack because of the Yarn berry
--        run: corepack enable
-       - name: Post-prepare the Node.js version ${{ matrix.node-version }} environment
-         uses: actions/setup-node@v4
-         with:
--          cache: ${{ !env.ACT && 'yarn' || '' }}
-+          cache: ${{ !env.ACT && 'npm' || '' }}
-           node-version: ${{ matrix.node-version }}
-       - env:
-           HUSKY: 0
-         name: Install the dependencies
--        run: yarn install --inline-builds
-+        run: npm ci
-       - name: Run the tests
--        run: yarn run test
-+        run: npm test
-     strategy:
-       matrix:
-         node-version:
-```
-
-```diff
---- a/.husky/commit-msg
-+++ b/.husky/commit-msg
-@@ -4,4 +4,4 @@
-
- . "$(dirname "$0")/_/husky.sh"
-
--yarn exec commitlint --edit "${1}"
-+npm x --no -- commitlint --edit "${1}"
-```
-
-```diff
---- a/.husky/pre-commit
-+++ b/.husky/pre-commit
-@@ -4,4 +4,4 @@
-
- . "$(dirname "$0")/_/husky.sh"
-
--yarn exec lint-staged
-+npm x --no -- lint-staged
-```
-
-```diff
---- a/.vim/coc-settings.json
-+++ b/.vim/coc-settings.json
-@@ -1,6 +1,4 @@
- {
--  "eslint.nodePath": ".yarn/sdks",
--  "eslint.packageManager": "yarn",
--  "tsserver.tsdk": ".yarn/sdks/typescript/lib",
-+  "tsserver.tsdk": "node_modules/typescript/lib",
-   "workspace.workspaceFolderCheckCwd": false
- }
-```
-
-```diff
---- a/.vscode/settings.json
-+++ b/.vscode/settings.json
-@@ -1,5 +1,4 @@
- {
--  "eslint.nodePath": ".yarn/sdks",
-   "files.readonlyInclude": {
-     "**/.pnp.*": true,
-     "**/.yarn/**/*": true,
-@@ -13,13 +12,11 @@
-    "**/node_modules/**/*": true
+console.log(e2j['guarantee']);
+/*
+[
+  {
+    kana: 'ほしょう',
+    word: '保証',
+    examples: [
+      {
+        en: 'there is no guarantee from the requesting country that it will honor requests of the same sort from Japan.',
+        ja: '日本国が行う同種の要請に応ずる旨の要請国の保証がないとき。',
+        ref: '国際捜査共助等に関する法律第4条第2号'
+      }
+    ],
+    notes: [],
+    usage: '（１）民法、（２）国際捜査共助等に関する法律の場合'
   },
-  "git.branchProtection": ["main"],
--  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-   "search.exclude": {
-     "**/.pnp.*": true,
-     "**/.yarn": true,
-     "**/node_modules/**/*": true
-   },
-   "typescript.enablePromptUseWorkspaceTsdk": true,
--  "typescript.tsdk": ".yarn/sdks/typescript/lib",
-   "yaml.schemas": {
-     "https://raw.githubusercontent.com/reviewpad/schemas/main/latest/schema.json": [
-       "reviewpad.yml"
+  { kana: 'ほしょう', word: '保障', examples: [], notes: [] }
+]
+*/
 ```
 
-```diff
---- a/package.json
-+++ b/package.json
-@@ -18,15 +18,15 @@
-     "clean": "rimraf -g .eslintcache \"*.tgz\" \"*.tsbuildinfo\" \"node_modules/.cache/**/*\"",
-     "commit": "aicommits -t conventional",
--    "postinstall": "husky install",
--    "lint": "conc -m 1 \"yarn:lint:*:check\"",
-+    "lint": "conc -m 1 \"npm:lint:*:check\"",
-     "lint:cspell:check": "cspell lint --no-progress --show-suggestions -u \"./**/*\"",
-     "lint:eslint:check": "eslint --cache --cache-strategy=content -f codeframe \"./**/*\"",
--    "lint:eslint:fix": "yarn run lint:eslint:check --fix",
--    "lint:fix": "conc -m 1 \"yarn:lint:*:fix\"",
--    "lint:prettier:check": "yarn run prettier -cu",
--    "lint:prettier:fix": "yarn run prettier -uw",
--    "prettier": "prettier --cache --log-level=warn \"$@\" \"./**/*\"",
--    "test": "yarn run lint"
-+    "lint:eslint:fix": "npm run lint:eslint:check -- --fix",
-+    "lint:fix": "conc -m 1 \"npm:lint:*:fix\"",
-+    "lint:prettier:check": "npm run prettier -- -cu",
-+    "lint:prettier:fix": "npm run prettier -- -uw",
-+    "prepare": "husky install",
-+    "prettier": "prettier --cache --log-level=warn \"./**/*\"",
-+    "test": "npm run lint"
-   },
-   "prettier": "@kurone-kito/prettier-config",
-   "devDependencies": {
-@@ -42,7 +42,6 @@
-     "@kurone-kito/typescript-config": "^0.8.4",
-     "@typescript-eslint/eslint-plugin": "^6.13.2",
-     "@typescript-eslint/parser": "^6.13.2",
--    "@yarnpkg/sdks": "^3.1.0",
-     "aicommits": "^1.11.0",
-     "concurrently": "^8.2.2",
-     "cspell": "^8.1.2",
-@@ -67,7 +66,6 @@
-     "typescript": "~5.3.2",
-     "typescript-eslint-language-service": "^5.0.5"
-   },
--  "packageManager": "yarn@4.0.2",
-   "engines": {
-     "node": ">=18.19"
-   },
+### `j2e`: The dictionary from Japanese to English
+
+`j2e.json` values are provided as is, with type definitions.
+
+```ts
+import { j2e } from '@kurone-kito/japanese-law-translation';
+
+console.log(j2e['弁償']);
+/*
+{
+  kana: 'べんしょう',
+  translations: [
+    { examples: [], notes: [], phrase: 'compensation' },
+    {
+      examples: [
+        {
+          en: '…also be reimbursed for necessary expenses incurred in performing their duties as specified by Cabinet Order',
+          ja: '…及び政令の定めるところによりその職務を行うために要する費用の弁償を受けるものとする',
+          ref: '労働組合法第19条の8'
+        }
+      ],
+      notes: ['【動詞】弁償する: reimburse'],
+      phrase: 'reimbursement'
+    }
+  ]
+}
+*/
 ```
 
-### 3. Run the following command
+### `k2e`: The dictionary from Hiragana to English
 
-```sh
-npm install
-git add -A
-git commit -m "feat: migrate to NPM from Yarn"
+`k2e.json` values are provided as is, with type definitions.
+
+```ts
+import { k2e } from '@kurone-kito/japanese-law-translation';
+
+console.log(k2e['ほしょう']);
+/*
+[
+  {
+    word: '保証',
+    translations: [
+      {
+        examples: [
+          {
+            en: 'there is no guarantee from the requesting country that it will honor requests of the same sort from Japan.',
+            ja: '日本国が行う同種の要請に応ずる旨の要請国の保証がないとき。',
+            ref: '国際捜査共助等に関する法律第4条第2号'
+          }
+        ],
+        notes: [],
+        phrase: 'guarantee',
+        usage: '（１）民法、（２）国際捜査共助等に関する法律の場合'
+      }
+    ]
+  },
+  {
+    word: '保障',
+    translations: [
+      {
+        examples: [],
+        notes: ['【注】制度としての保障の場合。'],
+        phrase: 'security',
+        usage: '原則'
+      },
+      { examples: [], notes: [], phrase: 'guarantee' }
+    ]
+  },
+  {
+    word: '補償',
+    translations: [
+      {
+        examples: [],
+        notes: [
+          '【注】用例について「損失の補償」を参照のこと。',
+          '【動詞】補償する: compensate'
+        ],
+        phrase: 'compensation'
+      }
+    ]
+  }
+]
+*/
 ```
 
-## Rules for Development
+[See documentation for details](https://github.com/kurone-kito/japanese-law-translation/blob/main/packages/jlt/docs/README.md).
 
-Introduce commit message validation at commit time.
-The “**[Conventional Commits](https://www.conventionalcommits.org/ja/)**”
-rule is applied to discourage committing messages that violate conventions.
+## Contributing
+
+Welcome to contribute to this repository! For more details, please refer to
+[CONTRIBUTING.md](https://github.com/kurone-kito/japanese-law-translation/blob/main/.github/CONTRIBUTING.md).
 
 ## LICENSE
 
-MIT
+[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)

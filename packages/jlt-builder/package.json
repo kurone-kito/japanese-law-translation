@@ -1,0 +1,47 @@
+{
+  "name": "@kurone-kito/japanese-law-translation-builder",
+  "version": "0.1.1",
+  "private": true,
+  "description": "The builder for the unofficial library provides bilingual English translations of legal terms in Japan.",
+  "homepage": "https://github.com/kurone-kito/japanese-law-translation#readme",
+  "bugs": "https://github.com/kurone-kito/japanese-law-translation/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kurone-kito/japanese-law-translation.git",
+    "directory": "packages/jlt-builder"
+  },
+  "license": "CC-BY-4.0",
+  "author": "kurone-kito <krone@kit.black> (https://kit.black/)",
+  "type": "module",
+  "main": "dist/index.mjs",
+  "bin": {
+    "jlt-builder": "dist/index.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" dist",
+    "preinstall": "pnpm dlx mkdirp dist && pnpm dlx touch dist/index.mjs",
+    "start": "tsc -w",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@kurone-kito/japanese-law-translation-types": "workspace:^",
+    "fast-xml-parser": "^4.4.1"
+  },
+  "devDependencies": {
+    "@kurone-kito/typescript-config": "0.16.0",
+    "@types/node": "^22.4.0",
+    "rimraf": "^5.0.10",
+    "typescript": "~5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "engines": {
+    "node": "^18.20 || ^20.10 || >=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
