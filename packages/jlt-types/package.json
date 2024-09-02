@@ -18,7 +18,7 @@
     "index.d.ts"
   ],
   "scripts": {
-    "build": "pnpm run -p \"/build:.+/\"",
+    "build": "pnpm run \"/build:.+/\"",
     "build:license": "cpy --flat ../../LICENSE .",
     "build:ts": "typedoc",
     "clean": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" LICENSE",

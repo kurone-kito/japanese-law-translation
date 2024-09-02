@@ -33,7 +33,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm run -p \"/^build:res:.+/\" && pnpm run -p \"/^build:code:.+/\"",
+    "build": "pnpm run \"/^build:res:.+/\" && pnpm run \"/^build:code:.+/\"",
     "build:code:jsdoc": "typedoc",
     "build:code:ts": "tsc",
     "build:res:jlt": "jlt-crawler | jlt-builder",
