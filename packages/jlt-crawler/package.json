@@ -21,10 +21,10 @@
     "dist"
   ],
   "scripts": {
+    "prebuild": "node node_modules/puppeteer/install.mjs",
     "build": "tsc",
     "clean": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" dist",
     "preinstall": "pnpm dlx mkdirp dist && pnpm dlx touch dist/index.mjs",
-    "postinstall": "node node_modules/puppeteer/install.mjs",
     "start": "tsc -w",
     "test": "vitest run"
   },
