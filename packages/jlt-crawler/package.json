@@ -1,6 +1,6 @@
 {
   "name": "@kurone-kito/japanese-law-translation-crawler",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "The web crawler for the unofficial library provides bilingual English translations of legal terms in Japan.",
   "homepage": "https://github.com/kurone-kito/japanese-law-translation#readme",
@@ -21,21 +21,21 @@
     "dist"
   ],
   "scripts": {
+    "prebuild": "node node_modules/puppeteer/install.mjs",
     "build": "tsc",
     "clean": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" dist",
     "preinstall": "pnpm dlx mkdirp dist && pnpm dlx touch dist/index.mjs",
-    "postinstall": "node node_modules/puppeteer/install.mjs",
     "start": "tsc -w",
     "test": "vitest run"
   },
   "dependencies": {
     "chalk": "^5.3.0",
     "ora": "^8.0.1",
-    "puppeteer": "^23.2.1"
+    "puppeteer": "^23.3.0"
   },
   "devDependencies": {
     "@kurone-kito/typescript-config": "0.16.0",
-    "@types/node": "^22.4.0",
+    "@types/node": "^22.5.4",
     "rimraf": "^5.0.10",
     "typescript": "~5.5.4",
     "typescript-eslint-language-service": "^5.0.5",

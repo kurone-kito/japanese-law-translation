@@ -1,6 +1,6 @@
 {
   "name": "@kurone-kito/japanese-law-translation-types",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The type definition for the unofficial library provides bilingual English translations of legal terms in Japan.",
   "homepage": "https://github.com/kurone-kito/japanese-law-translation#readme",
   "bugs": "https://github.com/kurone-kito/japanese-law-translation/issues",
@@ -18,7 +18,7 @@
     "index.d.ts"
   ],
   "scripts": {
-    "build": "pnpm run -p \"/build:.+/\"",
+    "build": "pnpm run \"/build:.+/\"",
     "build:license": "cpy --flat ../../LICENSE .",
     "build:ts": "typedoc",
     "clean": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" LICENSE",
@@ -29,7 +29,7 @@
     "cpy-cli": "^5.0.0",
     "rimraf": "^5.0.10",
     "typedoc": "^0.26.6",
-    "typedoc-plugin-markdown": "^4.2.6",
+    "typedoc-plugin-markdown": "^4.2.7",
     "typescript": "~5.5.4"
   },
   "engines": {
