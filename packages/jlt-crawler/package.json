@@ -30,14 +30,14 @@
   },
   "dependencies": {
     "chalk": "^5.3.0",
-    "ora": "^8.0.1",
+    "ora": "^8.1.0",
     "puppeteer": "^23.3.0"
   },
   "devDependencies": {
-    "@kurone-kito/typescript-config": "0.16.0",
+    "@kurone-kito/typescript-config": "0.16.1",
     "@types/node": "^22.5.4",
     "rimraf": "^5.0.10",
-    "typescript": "~5.5.4",
+    "typescript": "~5.6.2",
     "typescript-eslint-language-service": "^5.0.5",
     "vitest": "^2.0.5"
   },
