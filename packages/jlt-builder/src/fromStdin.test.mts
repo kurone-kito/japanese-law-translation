@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { fromStdin } from './fromStdin.mjs';
 
-vi.mock<NodeJS.Process>(import('node:process'), async (original) => ({
+vi.mock('node:process', async (original) => ({
   ...(await original()),
   stdin: Readable.from('Hello, world!'),
 }));
