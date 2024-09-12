@@ -25,10 +25,14 @@ jobs:
           cache: ${{ !env.ACT && 'pnpm' || '' }}
           node-version-file: .node-version
       - env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        name: deploy the token
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          echo "@kurone-kito:registry=https://registry.npmjs.org/" >> ~/.npmrc
+      - env:
           HUSKY: 0
         name: Install the dependencies
         run: pnpm install --prefer-frozen-lockfile
-      - env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        name: Publish the packages
+      - name: Publish the packages
         run: pnpm run publish

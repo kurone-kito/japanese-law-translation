@@ -10,4 +10,5 @@ ignorePaths:
   - packages/**/docs/**/*
 version: '0.2'
 words:
+  - npmjs
   - waivable
