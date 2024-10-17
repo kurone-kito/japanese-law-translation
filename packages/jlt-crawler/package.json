@@ -1,6 +1,6 @@
 {
   "name": "@kurone-kito/japanese-law-translation-crawler",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "description": "The web crawler for the unofficial library provides bilingual English translations of legal terms in Japan.",
   "homepage": "https://github.com/kurone-kito/japanese-law-translation#readme",

@@ -1,6 +1,6 @@
 {
   "name": "@kurone-kito/japanese-law-translation-root",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "description": "The unofficial library package provides bilingual English translations of legal terms in Japan.",
   "keywords": [
