@@ -17,9 +17,7 @@
   "bin": {
     "jlt-crawler": "dist/index.mjs"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "prebuild": "node node_modules/puppeteer/install.mjs",
     "build": "tsc",
@@ -34,10 +32,10 @@
     "puppeteer": "^23.3.0"
   },
   "devDependencies": {
-    "@kurone-kito/typescript-config": "0.16.1",
+    "@kurone-kito/typescript-config": "0.19.0",
     "@types/node": "^22.5.4",
-    "rimraf": "^5.0.10",
-    "typescript": "~5.6.2",
+    "rimraf": "^6.0.1",
+    "typescript": "~5.8.3",
     "typescript-eslint-language-service": "^5.0.5",
     "vitest": "^2.1.0"
   },
