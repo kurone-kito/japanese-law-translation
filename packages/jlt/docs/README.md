@@ -1,4 +1,4 @@
-**@kurone-kito/japanese-law-translation** • [**Docs**](globals.md)
+**@kurone-kito/japanese-law-translation**
 
 ***
 
@@ -41,6 +41,19 @@ console.log(j2e['法律']);
 
 console.log(j2eJson['法律']);
 // Output: { kana: 'ほうりつ', translation: [{ phrase: 'law', usage: '法律一般としての意味の場合', ... }, ...], ... }
+```
+
+### Search example
+
+You can implement a simple search using the dictionaries.
+
+```ts
+import { e2j } from '@kurone-kito/japanese-law-translation';
+
+const query = 'guar';
+const hits = Object.keys(e2j).filter((word) => word.startsWith(query));
+console.log(hits);
+// Output: ['guarantee', ...]
 ```
 
 ## API
