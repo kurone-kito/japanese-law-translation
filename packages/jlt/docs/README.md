@@ -193,3 +193,7 @@ Welcome to contribute to this repository! For more details, please refer to
 ## LICENSE
 
 [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)
+
+The dictionary data is sourced from the
+[Japanese Law Translation Database System](https://www.japaneselawtranslation.go.jp/)
+and licensed under CC BY 4.0 as stated on the site.
