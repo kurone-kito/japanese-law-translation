@@ -197,3 +197,9 @@ Welcome to contribute to this repository! For more details, please refer to
 The dictionary data is sourced from the
 [Japanese Law Translation Database System](https://www.japaneselawtranslation.go.jp/)
 and licensed under CC BY 4.0 as stated on the site.
+
+### Disclaimer
+
+The dictionary used in this project is based on official translations by
+the Ministry of Justice, but does not guarantee the accuracy or currency of
+the content.
