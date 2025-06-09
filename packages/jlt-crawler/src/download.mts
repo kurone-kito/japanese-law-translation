@@ -4,7 +4,7 @@ import puppeteer from 'puppeteer';
 import { overrideOptions } from './puppeteerOptions.mjs';
 import type { ParsedArguments } from './parseArguments.mjs';
 
-/** Type definition that download options. */
+/** Type definition for the download options. */
 export interface DownloadOptions
   extends Pick<Partial<ParsedArguments>, 'verbose' | 'version'> {
   /** The path to the directory where the downloaded file should be saved. */

@@ -3,7 +3,7 @@ import { KnownDevices } from 'puppeteer';
 
 const { viewport } = KnownDevices['iPad Mini landscape'];
 
-/** default puppeteer options */
+/** Default puppeteer options. */
 export const defaultOptions = {
   args: [
     '--disable-background-networking',
@@ -29,9 +29,9 @@ export const defaultOptions = {
 } as const satisfies PuppeteerLaunchOptions;
 
 /**
- * create the puppeteer options
- * @param additional the additional puppeteer options
- * @returns the puppeteer options
+ * Create the puppeteer options.
+ * @param additional The additional puppeteer options.
+ * @returns The merged puppeteer options.
  */
 export const overrideOptions = (
   additional: PuppeteerLaunchOptions = {},

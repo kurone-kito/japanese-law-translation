@@ -7,8 +7,8 @@ import type {
 } from '@kurone-kito/japanese-law-translation-types';
 
 /**
- * Convert the dictionary from English to Japanese to the dictionary from
- * Japanese to English.
+ * Convert a Japanese-to-English dictionary to an English-to-Japanese
+ * dictionary.
  *
  * @param source The dictionary from Japanese to English.
  * @returns The dictionary from English to Japanese.
