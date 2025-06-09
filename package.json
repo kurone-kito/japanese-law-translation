@@ -12,11 +12,11 @@
   "type": "module",
   "files": [],
   "scripts": {
-    "build": "pnpm run -r build",
+    "build": "pnpm run --workspace-concurrency=Infinity -r build",
     "builder": "pnpm --filter @kurone-kito/japanese-law-translation exec jlt-builder",
     "clean": "pnpm run --no-bail -p \"/^clean:.+/\"",
     "clean:root": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" \"node_modules/.cache/**/*\"",
-    "clean:sub": "pnpm run -r clean",
+    "clean:sub": "pnpm run --parallel --workspace-concurrency=Infinity -r clean",
     "crawler": "pnpm --filter @kurone-kito/japanese-law-translation exec jlt-crawler",
     "lint": "pnpm run \"/lint:.+:check/\"",
     "lint:biome:check": "biome check",
@@ -25,10 +25,13 @@
     "lint:fix": "pnpm run lint:cspell:check && pnpm run \"/lint:.+:fix/\"",
     "lint:markdown:check": "markdownlint-cli2 \"**/*.md\"",
     "lint:markdown:fix": "markdownlint-cli2 --fix \"**/*.md\"",
+    "pnpm:devPreinstall": "pnpm run \"/pnpm:devPreinstall:.+/\"",
+    "pnpm:devPreinstall:mkdir": "pnpm dlx mkdirp packages/jlt-builder/dist packages/jlt-crawler/dist",
+    "pnpm:devPreinstall:touch": "pnpm dlx touch packages/jlt-builder/dist/index.mjs packages/jlt-crawler/dist/index.mjs",
     "prepare": "husky",
     "publish": "pnpm run build && pnpm -r publish",
     "publish:next": "pnpm run publish --tag next",
-    "start": "pnpm run build && pnpm run --parallel -r start",
+    "start": "pnpm run build && pnpm run --parallel --workspace-concurrency=Infinity -r start",
     "test": "vitest run"
   },
   "devDependencies": {
