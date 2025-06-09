@@ -7,8 +7,8 @@ Japanese Law Translation website into JSON files.
 
 - Node.js
   - Iron LTS `^20.11.x` or
-  - Jod LTS `>=22.x.x` or
-  - later versions
+  - Jod LTS `^22.x.x` or
+  - Latest `>=24.x.x`
 
 ## Usage
 

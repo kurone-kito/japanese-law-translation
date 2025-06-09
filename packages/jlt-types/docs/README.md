@@ -11,9 +11,9 @@ which provides English translations of Japanese legal terms.
 ## System Requirements
 
 - Node.js
-  - Hydrogen LTS `>=18.20` or
-  - Iron LTS `>=20.10` or
-  - later versions
+  - Iron LTS `^20.11.x` or
+  - Jod LTS `^22.x.x` or
+  - Latest `>=24.x.x`
 
 ## Usage
 
