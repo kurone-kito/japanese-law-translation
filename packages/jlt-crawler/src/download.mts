@@ -65,14 +65,21 @@ const internalDownload = async (page: Page, downloadPath: string) => {
  */
 export const download = async (option: DownloadOptions) => {
   const { verbose, version, downloadPath } = option;
-  const spinner = ora('Launching the browser').start();
-  const [browser, page] = await initialize(verbose);
-  await page.goto(url, { waitUntil: 'networkidle0' });
-  spinner.succeed('Launched the browser.');
-  await fillForm(page, version);
-  spinner.succeed('Navigated to the download page.');
-  await internalDownload(page, downloadPath);
-  await page.close();
-  await browser.close();
-  spinner.succeed('Download completed.');
+  const spinner = ora('Launching the browser');
+  try {
+    spinner.start();
+    const [browser, page] = await initialize(verbose);
+    await page.goto(url, { waitUntil: 'networkidle0' });
+    spinner.succeed('Launched the browser.');
+    await fillForm(page, version);
+    spinner.succeed('Navigated to the download page.');
+    await internalDownload(page, downloadPath);
+    await page.close();
+    await browser.close();
+    spinner.succeed('Download completed.');
+  } catch (error) {
+    spinner.stop();
+    console.error(error instanceof Error ? error.message : String(error));
+    throw error;
+  }
 };
