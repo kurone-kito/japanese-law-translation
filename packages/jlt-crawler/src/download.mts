@@ -1,8 +1,8 @@
 import ora from 'ora';
 import type { Page } from 'puppeteer';
 import puppeteer from 'puppeteer';
-import { overrideOptions } from './puppeteerOptions.mjs';
 import type { ParsedArguments } from './parseArguments.mjs';
+import { overrideOptions } from './puppeteerOptions.mjs';
 
 /** Type definition for the download options. */
 export interface DownloadOptions

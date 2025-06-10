@@ -18,6 +18,7 @@ export const convertToE2J = (source: J2E): E2J =>
     (acc, [word, { kana, translations }]) =>
       translations.reduce((a, { phrase: p, ...rest }) => {
         const item: E2JEntry = { kana, word, ...rest };
+        // biome-ignore lint/performance/noAccumulatingSpread: Dictionaries are small; performance overhead is negligible
         return p ? { ...a, [p]: a[p] ? [...a[p], item] : [item] } : a;
       }, acc),
     {},
@@ -33,5 +34,6 @@ export const convertToE2J = (source: J2E): E2J =>
 export const convertToK2E = (source: J2E): K2E =>
   Object.entries(source).reduce<K2E>((acc, [word, { kana, translations }]) => {
     const item: K2EEntry = { word, translations };
+    // biome-ignore lint/performance/noAccumulatingSpread: Dictionaries are small; performance overhead is negligible
     return { ...acc, [kana]: acc[kana] ? [...acc[kana], item] : [item] };
   }, {});

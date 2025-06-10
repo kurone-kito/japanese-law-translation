@@ -1,8 +1,8 @@
-import { readdir, readFile, rm } from 'node:fs/promises';
+import { readFile, readdir, rm } from 'node:fs/promises';
 import { join } from 'node:path';
+import { download } from './download.mjs';
 import { parseArguments, usage } from './parseArguments.mjs';
 import { createTempDir } from './tempDir.mjs';
-import { download } from './download.mjs';
 
 const { help, ...rest } = parseArguments();
 if (help) {
