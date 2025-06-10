@@ -1,4 +1,4 @@
-**@kurone-kito/japanese-law-translation-types** • [**Docs**](globals.md)
+**@kurone-kito/japanese-law-translation-types**
 
 ***
 

@@ -1,11 +1,11 @@
-[**@kurone-kito/japanese-law-translation-types**](README.md) • **Docs**
+[**@kurone-kito/japanese-law-translation-types**](README.md)
 
 ***
 
 # @kurone-kito/japanese-law-translation-types
 
 This package provides type definitions for the library package
-[`@kurone-kito/japanese-law-translation`](https://www.npmjs.com/package/@kurone-kito/japanese-law-translation)
+[\`@kurone-kito/japanese-law-translation\`](https://www.npmjs.com/package/@kurone-kito/japanese-law-translation)
  which provides English translations of Japanese legal terms.
 
 ## Interfaces

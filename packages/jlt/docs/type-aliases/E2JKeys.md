@@ -1,4 +1,4 @@
-[**@kurone-kito/japanese-law-translation**](../README.md) • **Docs**
+[**@kurone-kito/japanese-law-translation**](../README.md)
 
 ***
 
@@ -6,6 +6,6 @@
 
 # Type Alias: E2JKeys
 
-> **E2JKeys**: keyof *typeof* `e2jJson`
+> **E2JKeys** = keyof *typeof* `e2jJson`
 
-Type definition that keys in the dictionary from English to Japanese.
+Type definition for the keys in the dictionary from English to Japanese.
