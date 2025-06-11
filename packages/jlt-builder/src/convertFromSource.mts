@@ -6,9 +6,9 @@ import type {
 } from '@kurone-kito/japanese-law-translation-types';
 import type {
   Entry,
+  Parsed,
   Example as SrcExample,
   Trans,
-  Parsed,
 } from './sourceTypes.mjs';
 
 /** The alias of the `Array.isArray` function. */

@@ -1,8 +1,9 @@
-import { readdir, readFile, rm } from 'node:fs/promises';
+import { readFile, readdir, rm } from 'node:fs/promises';
 import { join } from 'node:path';
+import { isNativeError } from 'node:util/types';
+import { download } from './download.mjs';
 import { parseArguments, usage } from './parseArguments.mjs';
 import { createTempDir } from './tempDir.mjs';
-import { download } from './download.mjs';
 
 const { help, ...rest } = parseArguments();
 if (help) {
@@ -11,14 +12,16 @@ if (help) {
 }
 
 const downloadPath = await createTempDir();
-await download({ ...rest, downloadPath });
-
-const [file] = await readdir(downloadPath);
-if (!file) {
-  console.error('No file was downloaded.');
-  process.exit(1);
+try {
+  await download({ ...rest, downloadPath });
+  const [file] = await readdir(downloadPath);
+  if (!file) {
+    throw new Error('No file was downloaded.');
+  }
+  console.log(await readFile(join(downloadPath, file), 'utf-8'));
+} catch (error) {
+  console.error(isNativeError(error) ? error.message : String(error));
+  process.exitCode = 1;
+} finally {
+  await rm(downloadPath, { recursive: true });
 }
-
-const content = await readFile(join(downloadPath, file), 'utf-8');
-await rm(downloadPath, { recursive: true });
-console.log(content);

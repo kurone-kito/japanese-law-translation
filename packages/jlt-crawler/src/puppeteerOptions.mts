@@ -1,9 +1,9 @@
-import type { PuppeteerLaunchOptions } from 'puppeteer';
+import type { LaunchOptions } from 'puppeteer';
 import { KnownDevices } from 'puppeteer';
 
 const { viewport } = KnownDevices['iPad Mini landscape'];
 
-/** default puppeteer options */
+/** Default puppeteer options. */
 export const defaultOptions = {
   args: [
     '--disable-background-networking',
@@ -26,14 +26,14 @@ export const defaultOptions = {
   ignoreDefaultArgs: ['--disable-extensions'],
   acceptInsecureCerts: true,
   defaultViewport: viewport,
-} as const satisfies PuppeteerLaunchOptions;
+} as const satisfies LaunchOptions;
 
 /**
- * create the puppeteer options
- * @param additional the additional puppeteer options
- * @returns the puppeteer options
+ * Create the puppeteer options.
+ * @param additional The additional puppeteer options.
+ * @returns The merged puppeteer options.
  */
 export const overrideOptions = (
-  additional: PuppeteerLaunchOptions = {},
-): PuppeteerLaunchOptions =>
-  Object.freeze<PuppeteerLaunchOptions>({ ...defaultOptions, ...additional });
+  additional: LaunchOptions = {},
+): LaunchOptions =>
+  Object.freeze<LaunchOptions>({ ...defaultOptions, ...additional });

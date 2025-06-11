@@ -1,8 +1,24 @@
-import { describe, expect, expectTypeOf, it } from 'vitest';
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  expectTypeOf,
+  it,
+} from 'vitest';
 import { parseArguments } from './parseArguments.mjs';
 
 describe('parseArguments', () => {
   const baseArgs = ['node', 'jlt-crawler'] as const;
+  let original: string[];
+
+  beforeEach(() => {
+    original = process.argv;
+  });
+
+  afterEach(() => {
+    process.argv = original;
+  });
 
   it('should parse the arguments', () =>
     expect(parseArguments()).toEqual({ help: false, verbose: false }));

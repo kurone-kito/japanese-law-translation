@@ -1,13 +1,19 @@
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
 name: The CI workflow on push
 on:
   push:
 permissions:
   contents: read
+run-name: Pushed by @${{ github.actor }}
 jobs:
   build:
     defaults:
       run:
         shell: ${{ matrix.platform.shell }}
+    env:
+      COREPACK_INTEGRITY_KEYS: 0
     name: The build process
     runs-on: ${{ matrix.platform.os }}
     steps:
@@ -21,7 +27,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Enable the corepack because of the pnpm
+      - name: Install the latest corepack explicitly
+        run: npm install --force -g corepack@latest
+      - name: Enable the corepack
         run: corepack enable
       - name: Post-prepare the Node.js version ${{ matrix.node-version }} environment
         uses: actions/setup-node@v4
@@ -41,9 +49,9 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 18.x
           - 20.x
           - 22.x
+          - 24.x
         platform:
           - os: ubuntu-latest
             shell: bash

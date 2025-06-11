@@ -1,2 +1,6 @@
+onlyBuiltDependencies:
+  - '@biomejs/biome'
+  - esbuild
+  - puppeteer
 packages:
   - packages/*

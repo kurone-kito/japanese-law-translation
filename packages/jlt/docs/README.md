@@ -1,4 +1,4 @@
-**@kurone-kito/japanese-law-translation** • [**Docs**](globals.md)
+**@kurone-kito/japanese-law-translation**
 
 ***
 
@@ -21,9 +21,9 @@ terms in Japan.
 ## System Requirements
 
 - Node.js
-  - Hydrogen LTS `>=18.20` or
-  - Iron LTS `>=20.10` or
-  - later versions
+  - Iron LTS `^20.11.x` or
+  - Jod LTS `^22.x.x` or
+  - Latest `>=24.x.x`
 
 ## Usage
 
@@ -41,6 +41,19 @@ console.log(j2e['法律']);
 
 console.log(j2eJson['法律']);
 // Output: { kana: 'ほうりつ', translation: [{ phrase: 'law', usage: '法律一般としての意味の場合', ... }, ...], ... }
+```
+
+### Search example
+
+You can implement a simple search using the dictionaries.
+
+```ts
+import { e2j } from '@kurone-kito/japanese-law-translation';
+
+const query = 'guar';
+const hits = Object.keys(e2j).filter((word) => word.startsWith(query));
+console.log(hits);
+// Output: ['guarantee', ...]
 ```
 
 ## API
@@ -180,3 +193,13 @@ Welcome to contribute to this repository! For more details, please refer to
 ## LICENSE
 
 [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)
+
+The dictionary data is sourced from the
+[Japanese Law Translation Database System](https://www.japaneselawtranslation.go.jp/)
+and licensed under CC BY 4.0 as stated on the site.
+
+### Disclaimer
+
+The dictionary used in this project is based on official translations by
+the Ministry of Justice, but does not guarantee the accuracy or currency of
+the content.

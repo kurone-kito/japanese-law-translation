@@ -1,4 +1,4 @@
-[**@kurone-kito/japanese-law-translation-types**](../README.md) • **Docs**
+[**@kurone-kito/japanese-law-translation-types**](../README.md)
 
 ***
 
@@ -6,13 +6,15 @@
 
 # Type Alias: Least1\<T\>
 
-> **Least1**\<`T`\>: readonly [`T`, `...readonly T[]`]
+> **Least1**\<`T`\> = readonly \[`T`, `...readonly T[]`\]
 
 The utility type that ensures that at least one element is present in
 the array.
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`
 
 The type of the elements in the array.

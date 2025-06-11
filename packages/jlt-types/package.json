@@ -1,6 +1,6 @@
 {
   "name": "@kurone-kito/japanese-law-translation-types",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "The type definition for the unofficial library provides bilingual English translations of legal terms in Japan.",
   "homepage": "https://github.com/kurone-kito/japanese-law-translation#readme",
   "bugs": "https://github.com/kurone-kito/japanese-law-translation/issues",
@@ -14,9 +14,7 @@
   "type": "module",
   "main": "index.d.ts",
   "types": "index.d.ts",
-  "files": [
-    "index.d.ts"
-  ],
+  "files": ["index.d.ts"],
   "scripts": {
     "build": "pnpm run \"/build:.+/\"",
     "build:license": "cpy --flat ../../LICENSE .",
@@ -25,15 +23,15 @@
     "prepack": "pnpm run clean && pnpm run build"
   },
   "devDependencies": {
-    "@kurone-kito/typescript-config": "0.16.1",
+    "@kurone-kito/typescript-config": "0.19.0",
     "cpy-cli": "^5.0.0",
-    "rimraf": "^5.0.10",
-    "typedoc": "^0.26.7",
-    "typedoc-plugin-markdown": "^4.2.7",
-    "typescript": "~5.6.2"
+    "rimraf": "^6.0.1",
+    "typedoc": "^0.28.5",
+    "typedoc-plugin-markdown": "^4.6.4",
+    "typescript": "~5.8.3"
   },
   "engines": {
-    "node": "^18.20 || ^20.10 || >=22"
+    "node": "^20.11 || ^22 || >=24"
   },
   "publishConfig": {
     "access": "public"
