@@ -27,7 +27,7 @@
     "build": "pnpm run \"/^build:res:.+/\" && pnpm run \"/^build:code:.+/\"",
     "build:code:jsdoc": "typedoc",
     "build:code:ts": "tsc",
-    "build:res:jlt": "jlt-crawler | jlt-builder",
+    "build:res:jlt": "jlt-crawler --verbose | jlt-builder",
     "build:res:license": "cpy --flat ../../LICENSE .",
     "build:res:readme": "cpy --flat ../../README.md .",
     "clean": "rimraf -g \"*.tgz\" \"*.tsbuildinfo\" dist LICENSE README.md \"src/*.json\"",
