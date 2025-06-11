@@ -15,10 +15,7 @@ import type { Entry, Parsed } from './sourceTypes.mjs';
 
 describe('convertEntry', () => {
   const source: Entry = {
-    Word: {
-      '#text': 'Word',
-      '@_Kana': 'Kana',
-    },
+    Word: { '#text': 'Word', '@_Kana': 'Kana' },
     Trans: [
       {
         Example: { EnPhrase: 'EN', JaPhrase: 'JA', Reference: 'Ref' },
@@ -51,6 +48,56 @@ describe('convertEntry', () => {
     expectTypeOf(convertEntry(source)).toEqualTypeOf<
       readonly [word: string, entry: J2EEntry]
     >());
+
+  it('should handle a single translation without examples', () => {
+    const single: Entry = {
+      Word: { '#text': 'Word', '@_Kana': 'Kana' },
+      Trans: {
+        Note1: 'Note 1',
+        Note2: 'Note 2',
+        TransWord: 'Translation word',
+        Usage: 'Usage',
+      },
+    };
+    expect(convertEntry(single)).toEqual([
+      'Word',
+      {
+        kana: 'Kana',
+        translations: [
+          {
+            examples: [],
+            notes: ['Note 1', 'Note 2'],
+            phrase: 'Translation word',
+            usage: 'Usage',
+          },
+        ],
+      },
+    ]);
+  });
+
+  it('should handle a single translation with an example object', () => {
+    const single: Entry = {
+      Word: { '#text': 'Word', '@_Kana': 'Kana' },
+      Trans: {
+        Example: { EnPhrase: 'EN', JaPhrase: 'JA', Reference: 'Ref' },
+        TransWord: 'Translation word',
+      },
+    };
+    expect(convertEntry(single)).toEqual([
+      'Word',
+      {
+        kana: 'Kana',
+        translations: [
+          {
+            examples: [{ en: 'EN', ja: 'JA', ref: 'Ref' }],
+            notes: [],
+            phrase: 'Translation word',
+            usage: undefined,
+          },
+        ],
+      },
+    ]);
+  });
 });
 
 describe('convertExample', () => {
@@ -83,6 +130,22 @@ describe('convertTranslation', () => {
 
   it('should get the type of the returned object', () =>
     expectTypeOf(convertTranslation(source)).toEqualTypeOf<Translation>());
+
+  it('should convert a translation without examples', () => {
+    const noEx = {
+      Note1: 'Note 1',
+      Note2: 'Note 2',
+      TransWord: 'Translation word',
+      Usage: 'Usage',
+    } as const;
+    expect(convertTranslation(noEx)).toEqual({
+      examples: [],
+      notes: ['Note 1', 'Note 2'],
+      phrase: 'Translation word',
+      usage: 'Usage',
+    });
+    expectTypeOf(convertTranslation(noEx)).toEqualTypeOf<Translation>();
+  });
 });
 
 describe('convertFromSource', () => {
@@ -123,4 +186,61 @@ describe('convertFromSource', () => {
 
   it('should get the type of the returned object', () =>
     expectTypeOf(convertFromSource(source)).toEqualTypeOf<J2E>());
+
+  it('should handle a single translation without examples', () => {
+    const single: Parsed = {
+      Dictionary: {
+        Entry: [
+          {
+            Word: { '#text': 'Word', '@_Kana': 'Kana' },
+            Trans: { Note1: 'Note 1', TransWord: 'Translation word' },
+          },
+        ],
+      },
+    };
+    expect(convertFromSource(single)).toEqual({
+      Word: {
+        kana: 'Kana',
+        translations: [
+          {
+            examples: [],
+            notes: ['Note 1'],
+            phrase: 'Translation word',
+            usage: undefined,
+          },
+        ],
+      },
+    });
+    expectTypeOf(convertFromSource(single)).toEqualTypeOf<J2E>();
+  });
+
+  it('should handle a single translation with an example object', () => {
+    const single: Parsed = {
+      Dictionary: {
+        Entry: [
+          {
+            Word: { '#text': 'Word', '@_Kana': 'Kana' },
+            Trans: {
+              Example: { EnPhrase: 'EN', JaPhrase: 'JA' },
+              TransWord: 'Translation word',
+            },
+          },
+        ],
+      },
+    };
+    expect(convertFromSource(single)).toEqual({
+      Word: {
+        kana: 'Kana',
+        translations: [
+          {
+            examples: [{ en: 'EN', ja: 'JA', ref: undefined }],
+            notes: [],
+            phrase: 'Translation word',
+            usage: undefined,
+          },
+        ],
+      },
+    });
+    expectTypeOf(convertFromSource(single)).toEqualTypeOf<J2E>();
+  });
 });
