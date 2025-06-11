@@ -4,6 +4,8 @@
 
 # ↔️ Japanese Law Translation
 
+Language: **🇬🇧** | [🇯🇵](https://github.com/kurone-kito/japanese-law-translation/blob/main/README.ja.md)
+
 The unofficial library provides bilingual English translations of legal
 terms in Japan.
 

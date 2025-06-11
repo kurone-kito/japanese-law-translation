@@ -29,6 +29,11 @@ Internally this command executes `jlt-crawler` to fetch the XML and pipes
 the result to `jlt-builder`, creating `e2j.json`, `j2e.json` and `k2e.json`
 under `packages/jlt/src`.
 
+These JSON files are generated during the build process and are excluded
+from the repository via `.gitignore` (`packages/jlt/src/*.json`).  They are
+large artifacts derived from the official XML and can always be recreated,
+so they are not committed to Git.
+
 If you already have an XML file, run:
 
 ```sh
