@@ -42,7 +42,7 @@ describe('download', () => {
     await expect(download({ downloadPath: '/tmp' })).rejects.toThrow(
       'launch error',
     );
-    expect(spinner.stop).toHaveBeenCalled();
+    expect(spinner.succeed).not.toHaveBeenCalled();
     expect(errorSpy).toHaveBeenCalledWith('launch error');
   });
 
