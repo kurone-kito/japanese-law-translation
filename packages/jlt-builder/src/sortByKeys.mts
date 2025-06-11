@@ -4,6 +4,8 @@
  * @returns The object with the keys sorted.
  */
 export const sortByKeys = <T extends object>(source: T): T => {
-  const entries = Object.entries(source).sort(([a], [b]) => a.localeCompare(b));
+  const entries = Object.entries(source).sort(([a], [b]) =>
+    a.localeCompare(b, 'ja'),
+  );
   return Object.fromEntries(entries) as T;
 };
