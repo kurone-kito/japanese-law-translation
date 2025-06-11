@@ -23,5 +23,5 @@ try {
   console.error(isNativeError(error) ? error.message : String(error));
   process.exitCode = 1;
 } finally {
-  await rm(downloadPath, { recursive: true });
+  await rm(downloadPath, { force: true, recursive: true });
 }
