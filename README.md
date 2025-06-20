@@ -16,10 +16,10 @@ terms in Japan.
 
 ## System Requirements
 
-- Node.js
-  - Iron LTS `^20.11.x` or
-  - Jod LTS `^22.x.x` or
-  - Latest `>=24.x.x`
+- Node.js: Any of the following versions
+  - Iron LTS (`^20.11.x`)
+  - Jod LTS (`^22.x.x`)
+  - Latest (`>=24.x.x`)
 
 ## Usage
 

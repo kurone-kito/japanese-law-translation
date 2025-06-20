@@ -258,6 +258,10 @@ $RECYCLE.BIN/
 
 ### THE PROJECT SPECIFIES #################################################
 
+### Node ###
+# pnpm
+pnpm-lock.yaml.*
+
 ### Text ###
 packages/**/LICENSE
 packages/jlt/README.md

@@ -39,7 +39,7 @@ jobs:
       - env:
           HUSKY: 0
         name: Install the dependencies
-        run: pnpm install --prefer-frozen-lockfile
+        run: pnpm install --frozen-lockfile --prefer-offline
       - name: Run the build
         run: pnpm run build
       - name: Run the Linting

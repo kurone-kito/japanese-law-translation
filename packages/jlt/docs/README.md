@@ -20,10 +20,10 @@ terms in Japan.
 
 ## System Requirements
 
-- Node.js
-  - Iron LTS `^20.11.x` or
-  - Jod LTS `^22.x.x` or
-  - Latest `>=24.x.x`
+- Node.js: Any of the following versions
+  - Iron LTS (`^20.11.x`)
+  - Jod LTS (`^22.x.x`)
+  - Latest (`>=24.x.x`)
 
 ## Usage
 
@@ -189,6 +189,18 @@ console.log(k2e['ほしょう']);
 
 Welcome to contribute to this repository! For more details, please refer to
 [CONTRIBUTING.md](https://github.com/kurone-kito/japanese-law-translation/blob/main/.github/CONTRIBUTING.md).
+
+To install dependencies for development, run:
+
+```sh
+pnpm install
+```
+
+The test suite requires [vitest](https://vitest.dev/) and can be executed with:
+
+```sh
+pnpm test
+```
 
 ## LICENSE
 
