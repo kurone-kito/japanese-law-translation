@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "chalk": "^5.4.1",
-    "ora": "^8.2.0",
+    "ora": "^9.1.0",
     "puppeteer": "^24.10.0"
   },
   "devDependencies": {
