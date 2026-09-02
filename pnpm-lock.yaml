@@ -21,8 +21,8 @@ importers:
         specifier: ^9.0.2
         version: 9.0.2
       '@kurone-kito/biome-config':
-        specifier: 0.19.0
-        version: 0.19.0(@biomejs/biome@1.9.4)
+        specifier: 0.20.0
+        version: 0.20.0(@biomejs/biome@1.9.4)
       '@kurone-kito/commitlint-config':
         specifier: ^0.19.0
         version: 0.19.0(@commitlint/config-conventional@19.8.1)
@@ -719,9 +719,9 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.0':
     resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
 
-  '@kurone-kito/biome-config@0.19.0':
-    resolution: {integrity: sha512-dZ/4dseTTWpaBnQOl2jOZfzPNalzIv9I0/Jm1q8hFKYlnmCnvQKc6/gyvbHhfUsWqoJBnD9NJmO+8cD1yV+G9Q==}
-    engines: {node: ^20.11 || >=22}
+  '@kurone-kito/biome-config@0.20.0':
+    resolution: {integrity: sha512-ehWZinMpRbp2if2rz9mI2zttSFR0rhqFY2V1+llet5/jRCXlJ/gn1+2N8IMuM2a3GCs1jmLVO4xNCexLPOVK7A==}
+    engines: {node: ^20.11 || ^22 || >=24}
     peerDependencies:
       '@biomejs/biome': '*'
     peerDependenciesMeta:
@@ -2983,7 +2983,7 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.0': {}
 
-  '@kurone-kito/biome-config@0.19.0(@biomejs/biome@1.9.4)':
+  '@kurone-kito/biome-config@0.20.0(@biomejs/biome@1.9.4)':
     optionalDependencies:
       '@biomejs/biome': 1.9.4
 
