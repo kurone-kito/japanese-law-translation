@@ -45,7 +45,7 @@
     "@kurone-kito/lint-staged-config": "^0.19.0",
     "@kurone-kito/markdownlint-config": "^0.22.0",
     "@kurone-kito/typescript-config": "^0.19.0",
-    "cspell": "^10.1.1",
+    "cspell": "^10.3.5",
     "husky": "^9.1.7",
     "lint-staged": "^17.2.0",
     "markdownlint-cli2": "^0.18.1",
